@@ -1,5 +1,15 @@
 # 🧱 Firewall Detector Tool — #15
 
+
+## Get this repository
+
+Clone the current project (this repository's canonical GitHub URL), then follow the installation and usage steps below.
+
+```bash
+git clone https://github.com/cyberworlduniversity/firewall_detector.git
+cd firewall_detector
+```
+
 > **Detect Web Application Firewalls (WAF) on any website**
 > 
 > Part of the **Security Toolkit** by [@hemanathan115](https://github.com/hemanathan115)
@@ -57,8 +67,8 @@ It works by:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/hemanathan115/firewall-detector.git
-cd firewall-detector
+git clone https://github.com/cyberworlduniversity/firewall_detector.git
+cd firewall_detector
 ```
 
 ### 2. Install Dependencies
