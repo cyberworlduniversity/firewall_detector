@@ -208,3 +208,55 @@ MIT License — Free to use, modify, and distribute with attribution.
 ---
 
 ⭐ **Star this repo** if you found it useful! Contributions and pull requests are welcome.
+
+
+## Repository Quick Start
+
+Clone the canonical repository:
+
+```bash
+git clone https://github.com/cyberworlduniversity/firewall_detector.git
+cd firewall_detector
+```
+
+### Requirements and installation
+
+- Python 3.10+ is recommended.
+Create an isolated environment and install dependencies:
+
+```bash
+python -m venv .venv
+# Linux/macOS: source .venv/bin/activate
+# Windows PowerShell: .venv\\Scripts\\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+### Run
+
+```bash
+python firewall_detector.py
+```
+
+For scripts that expose command-line options, use `python firewall_detector.py --help` to inspect the options implemented in this version. Begin with sample or non-sensitive input.
+
+### Validate source syntax
+
+```bash
+python -m compileall -q .
+```
+
+Run only on systems and networks you administer or are authorized to assess.
+
+### Program flow
+
+```mermaid
+flowchart TD
+    A[Start] --> B[Load input and settings]
+    B --> C{Input valid?}
+    C -- No --> D[Show validation error]
+    C -- Yes --> E[Run firewall detector checks]
+    E --> F[Evaluate results]
+    F --> G[Display or save report]
+    G --> H[Exit]
+    D --> H
+```
