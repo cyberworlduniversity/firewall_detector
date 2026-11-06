@@ -176,18 +176,12 @@ class FirewallDetector:
 
     def _get(self, url: str) -> requests.Response | None:
         try:
-            resp = self.session.get(url, timeout=self.timeout, verify=False,
-                                    allow_redirects=True)
-            return resp
-        except requests.exceptions.SSLError:
-            try:
-                return self.session.get(url.replace("https://", "http://"),
-                                        timeout=self.timeout, verify=False,
-                                        allow_redirects=True)
-            except Exception as e:
-                if self.verbose:
-                    cprint(Colors.RED, f"  [!] SSL fallback error: {e}")
-                return None
+            # Keep Requests' default certificate and hostname verification enabled.
+            return self.session.get(url, timeout=self.timeout, allow_redirects=True)
+        except requests.exceptions.SSLError as e:
+            if self.verbose:
+                cprint(Colors.RED, f"  [!] TLS verification failed: {e}")
+            return None
         except Exception as e:
             if self.verbose:
                 cprint(Colors.RED, f"  [!] Request error: {e}")
